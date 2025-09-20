@@ -49,3 +49,13 @@ EOF""",
         """Generate a JSON report"""
         result = self.check()
         return json.dumps(result, indent=4)
+    
+    # Ejemplo de uso
+if __name__ == "__main__":
+    control = control_1_1_1()
+    print("=== CHECK ===")
+    print(control.report())
+
+    if control.check()["status"] == "FAIL":
+        print("=== REMEDIATING ===")
+        print(control.remediate())
